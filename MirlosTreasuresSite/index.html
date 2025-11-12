@@ -267,6 +267,25 @@
         applyTheme(t); localStorage.setItem('mirlos-theme', t);
       });
     })();
-  </script>
+  </script> 
+  <script>
+(function () {
+  const THEMES = ['fall','winter','spring','summer'];
+  function applyTheme(season) {
+    const html = document.documentElement;
+    THEMES.forEach(t => html.classList.remove('theme-' + t));
+    html.classList.add('theme-' + season);
+  }
+  fetch('data/settings.json', { cache: 'no-store' })
+    .then(r => r.json())
+    .then(cfg => {
+      const s = String((cfg && cfg.season) || 'fall').toLowerCase();
+      applyTheme(THEMES.includes(s) ? s : 'fall');
+    })
+    .catch(() => applyTheme('fall'));
+})();
+</script>
+
  </body>
+
 </html>
