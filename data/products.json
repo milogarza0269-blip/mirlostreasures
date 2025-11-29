@@ -12,7 +12,6 @@
     ],
     "inventory": 10
   },
-
   {
     "title": "MK Orange Soap Bar",
     "price": 8.99,
@@ -26,16 +25,6 @@
       "images/mkorange-5.jpg"
     ],
     "inventory": 10
-  },
-
-  {
-    "title": "Lé Pew Bar — Odor Neutralizing Soap",
-    "price": 9.99,
-    "category": "apothecary",
-    "image": "images/mirloslogoclear.png",
-    "images": [
-      "images/mirloslogoclear.png"
-    ],
-    "inventory": 10
   }
 ]
+
