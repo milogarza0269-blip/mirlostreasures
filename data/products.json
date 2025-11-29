@@ -1,29 +1,36 @@
 [
   {
-    "title": "Earth Milk Soap Bar",
-    "price": 8.99,
-    "category": "apothecary",
-    "image": "images/earthmilk-1.jpg",
+    "id": "michael-kors-colorblock-pebbled-leather-satchel",
+    "title": "👜 MICHAEL KORS Colorblock Pebbled Leather Satchel",
+    "price": 150,
+    "category": "purses",
+    "description": "Sophisticated and structured, this MICHAEL KORS satchel features a timeless colorblock design in black and cream.",
+    "condition": "new",
+    "image": "images/mkpanda-1.jpg",
     "images": [
-      "images/earthmilk-1.jpg",
-      "images/earthmilk-2.jpg",
-      "images/earthmilk-3.jpg",
-      "images/earthmilk-4.jpg"
+      "images/mkpanda-1.jpg",
+      "images/mkpanda-2.jpg",
+      "images/mkpanda-3.jpg",
+      "images/mkpanda-4.jpg"
     ],
-    "inventory": 10
+    "featured": true,
+    "inventory": 1
   },
+
   {
-    "title": "MK Orange Soap Bar",
-    "price": 8.99,
-    "category": "apothecary",
-    "image": "images/mkorange-1.jpg",
+    "id": "hand-painted-ceramic-sugar-skull-pair",
+    "title": "💀 Hand-Painted Ceramic Sugar Skull Pair",
+    "price": 7,
+    "category": "home",
+    "description": "Vibrant, detailed, and full of character — these Day of the Dead sugar skulls make a perfect collectible pair.",
+    "condition": "new",
+    "image": "images/spdod-1.jpg",
     "images": [
-      "images/mkorange-1.jpg",
-      "images/mkorange-2.jpg",
-      "images/mkorange-3.jpg",
-      "images/mkorange-4.jpg",
-      "images/mkorange-5.jpg"
+      "images/spdod-1.jpg",
+      "images/spdod-2.jpg",
+      "images/spdod-3.jpg"
     ],
-    "inventory": 10
+    "featured": true,
+    "inventory": 1
   }
 ]
