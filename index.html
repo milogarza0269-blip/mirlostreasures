@@ -248,14 +248,13 @@
     </div>
    </div>
   </footer>
-  <div aria-hidden="true" class="snow">
-  </div>
-  <script src="cart.js">
-  </script>
-  <script src="products.js">
-  </script>
+    <div aria-hidden="true" class="snow"></div>
+
+  <script src="products.js"></script>
+  <script src="cart.js"></script>
+
   <script>
-   document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('year').textContent = new Date().getFullYear();
     (function () {
       const root = document.documentElement;
       const select = document.getElementById('themeSelect');
@@ -267,25 +266,23 @@
         applyTheme(t); localStorage.setItem('mirlos-theme', t);
       });
     })();
-  </script> 
+  </script>
   <script>
-(function () {
-  const THEMES = ['fall','winter','spring','summer'];
-  function applyTheme(season) {
-    const html = document.documentElement;
-    THEMES.forEach(t => html.classList.remove('theme-' + t));
-    html.classList.add('theme-' + season);
-  }
-  fetch('data/settings.json', { cache: 'no-store' })
-    .then(r => r.json())
-    .then(cfg => {
-      const s = String((cfg && cfg.season) || 'fall').toLowerCase();
-      applyTheme(THEMES.includes(s) ? s : 'fall');
-    })
-    .catch(() => applyTheme('fall'));
-})();
-</script>
-
- </body>
-
+    (function () {
+      const THEMES = ['fall','winter','spring','summer'];
+      function applyTheme(season) {
+        const html = document.documentElement;
+        THEMES.forEach(t => html.classList.remove('theme-' + t));
+        html.classList.add('theme-' + season);
+      }
+      fetch('data/settings.json', { cache: 'no-store' })
+        .then(r => r.json())
+        .then(cfg => {
+          const s = String((cfg && cfg.season) || 'fall').toLowerCase();
+          applyTheme(THEMES.includes(s) ? s : 'fall');
+        })
+        .catch(() => applyTheme('fall'));
+    })();
+  </script>
+</body>
 </html>
