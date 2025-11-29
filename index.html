@@ -1,283 +1,197 @@
 <!DOCTYPE html>
 <html lang="en">
- <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1" name="viewport"/>
-  <title>
-   Mirlos Treasures
-  </title>
-  <link href="style.css" rel="stylesheet"/>
- </head>
- <body>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mirlos Treasures</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
   <!-- ============== Header ============== -->
   <header class="site-header">
-   <div class="container header-inner">
-    <a class="brand" href="#">
-     <img alt="Mirlos Treasures logo" src="images/mirloslogoclear.png"/>
-     <span>
-      Mirlos Treasures
-     </span>
-    </a>
-    <nav aria-label="Primary" class="nav">
-     <a href="#featured">
-      Featured
-     </a>
-     <a href="#trust">
-      Why Mirlos
-     </a>
-     <select aria-label="Theme" id="themeSelect">
-      <option value="default">
-       Default
-      </option>
-      <option value="fall">
-       Fall
-      </option>
-      <option value="winter">
-       Winter
-      </option>
-      <option value="christmas">
-       Christmas
-      </option>
-     </select>
-    </nav>
-    <div class="actions">
-     <a class="cart" href="#cart" id="openCart">
-      Cart
-      <span class="badge" id="cartCount">
-       0
-      </span>
-     </a>
-     <select aria-label="Filter by category" id="categoryFilter">
-      <option value="">
-       All Categories
-      </option>
-      <option value="apothecary">
-       Apothecary
-      </option>
-      <option value="media">
-       Media
-      </option>
-      <option value="clothing">
-       Clothing
-      </option>
-      <option value="purses">
-       Purses
-      </option>
-      <option value="collectibles">
-       Collectibles
-      </option>
-      <option value="antiques">
-       Antiques
-      </option>
-      <option value="toys">
-       Toys &amp; Games
-      </option>
-      <option value="home">
-       Home Decor
-      </option>
-      <option value="electronics">
-       Electronics
-      </option>
-      <option value="rare">
-       Rare
-      </option>
-     </select>
+    <div class="container header-inner">
+      <a class="brand" href="#">
+        <img src="images/mirloslogoclear.png" alt="Mirlos Treasures logo" />
+        <span>Mirlos Treasures</span>
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <a href="#featured">Featured</a>
+        <a href="#trust">Why Mirlos</a>
+        <select id="themeSelect" aria-label="Theme">
+          <option value="default">Default</option>
+          <option value="fall">Fall</option>
+          <option value="winter">Winter</option>
+          <option value="christmas">Christmas</option>
+        </select>
+      </nav>
+
+      <div class="actions">
+        <a class="cart" href="#cart" id="openCart">
+          Cart
+          <span class="badge" id="cartCount">0</span>
+        </a>
+        <select id="categoryFilter" aria-label="Filter by category">
+          <option value="">All Categories</option>
+          <option value="apothecary">Apothecary</option>
+          <option value="media">Media</option>
+          <option value="clothing">Clothing</option>
+          <option value="purses">Purses</option>
+          <option value="collectibles">Collectibles</option>
+          <option value="antiques">Antiques</option>
+          <option value="toys">Toys &amp; Games</option>
+          <option value="home">Home Decor</option>
+          <option value="electronics">Electronics</option>
+          <option value="rare">Rare</option>
+        </select>
+      </div>
     </div>
-   </div>
   </header>
+
   <!-- ============== Hero ============== -->
   <section class="hero">
-   <h1>
-    Curated vintage &amp; modern finds
-   </h1>
-   <p>
-    Hand-picked gear, retro media, and Mirlos Apothecary.
-   </p>
-   <a class="btn btn-primary" href="#featured">
-    Shop Featured
-   </a>
-   <div aria-label="Shop shortcuts" class="hero-tiles">
-    <a class="tile" data-filter="rare" href="#featured">
-     <strong>
-      Rare Finds
-     </strong>
-     <span>
-      Unique &amp; collectible
-     </span>
-    </a>
-    <a class="tile" data-filter="apothecary" href="#featured">
-     <strong>
-      Apothecary
-     </strong>
-     <span>
-      Small-batch soaps
-     </span>
-    </a>
-    <a class="tile" data-filter="toys &amp; games" href="#featured">
-     <strong>
-      Toys &amp; Games
-     </strong>
-     <span>
-      90s–2000s
-     </span>
-    </a>
-    <a class="tile" data-filter="electronics" href="#featured">
-     <strong>
-      Electronics
-     </strong>
-     <span>
-      Retro media
-     </span>
-    </a>
-   </div>
+    <h1>Curated vintage &amp; modern finds</h1>
+    <p>Hand-picked gear, retro media, and Mirlos Apothecary.</p>
+    <a class="btn btn-primary" href="#featured">Shop Featured</a>
+
+    <div class="hero-tiles" aria-label="Shop shortcuts">
+      <a class="tile" href="#featured" data-filter="rare">
+        <strong>Rare Finds</strong>
+        <span>Unique &amp; collectible</span>
+      </a>
+      <a class="tile" href="#featured" data-filter="apothecary">
+        <strong>Apothecary</strong>
+        <span>Small-batch soaps</span>
+      </a>
+      <a class="tile" href="#featured" data-filter="toys &amp; games">
+        <strong>Toys &amp; Games</strong>
+        <span>90s–2000s</span>
+      </a>
+      <a class="tile" href="#featured" data-filter="electronics">
+        <strong>Electronics</strong>
+        <span>Retro media</span>
+      </a>
+    </div>
   </section>
+
   <!-- ============== Categories ============== -->
-  <section aria-labelledby="shopByCategory" class="categories container">
-   <h2 class="section-title" id="shopByCategory">
-    Browse by Category
-   </h2>
-   <a class="tile" data-filter="rare" href="#featured">
-    <h3>
-     Rare
-    </h3>
-    <span>
-     Signed, limited, vintage
-    </span>
-   </a>
-   <a class="tile" data-filter="apothecary" href="#featured">
-    <h3>
-     Apothecary
-    </h3>
-    <span>
-     Handmade soaps
-    </span>
-   </a>
-   <a class="tile" data-filter="toys &amp; games" href="#featured">
-    <h3>
-     Toys &amp; Games
-    </h3>
-    <span>
-     Action figures &amp; more
-    </span>
-   </a>
-   <a class="tile" data-filter="electronics" href="#featured">
-    
-    <h3>
-     Electronics
-    </h3>
-    <span>
-     Cassettes, media
-    </span>
-   </a>
+  <section class="categories container" aria-labelledby="shopByCategory">
+    <h2 class="section-title" id="shopByCategory">Browse by Category</h2>
+
+    <a class="tile" href="#featured" data-filter="rare">
+      <h3>Rare</h3>
+      <span>Signed, limited, vintage</span>
+    </a>
+    <a class="tile" href="#featured" data-filter="apothecary">
+      <h3>Apothecary</h3>
+      <span>Handmade soaps</span>
+    </a>
+    <a class="tile" href="#featured" data-filter="toys &amp; games">
+      <h3>Toys &amp; Games</h3>
+      <span>Action figures &amp; more</span>
+    </a>
+    <a class="tile" href="#featured" data-filter="electronics">
+      <h3>Electronics</h3>
+      <span>Cassettes, media</span>
+    </a>
   </section>
+
   <!-- ============== Featured ============== -->
-  <section aria-labelledby="featuredHeading" class="products" id="featured">
-   <div class="container">
-    <h2 class="section-title" id="featuredHeading">
-     Featured
-    </h2>
-    <div class="grid" id="productsGrid">
+  <section class="products" id="featured" aria-labelledby="featuredHeading">
+    <div class="container">
+      <h2 class="section-title" id="featuredHeading">Featured</h2>
+      <div class="grid" id="productsGrid"></div>
     </div>
-   </div>
   </section>
+
   <!-- ============== Trust ============== -->
-  <section aria-labelledby="trustHeading" class="trust" id="trust">
-   <div class="container">
-    <h2 class="section-title" id="trustHeading">
-     Why Shop Mirlos Treasures
-    </h2>
-    <div class="trust-grid">
-     <div class="trust-card">
-      ★ 30-day returns on most items
-     </div>
-     <div class="trust-card">
-      ✅ Tested &amp; described accurately
-     </div>
-     <div class="trust-card">
-      🚚 Fast 1-day handling
-     </div>
-     <div class="trust-card">
-      🔒 Secure checkout (PayPal/CC)
-     </div>
+  <section class="trust" id="trust" aria-labelledby="trustHeading">
+    <div class="container">
+      <h2 class="section-title" id="trustHeading">Why Shop Mirlos Treasures</h2>
+      <div class="trust-grid">
+        <div class="trust-card">★ 30-day returns on most items</div>
+        <div class="trust-card">✅ Tested &amp; described accurately</div>
+        <div class="trust-card">🚚 Fast 1-day handling</div>
+        <div class="trust-card">🔒 Secure checkout (PayPal/CC)</div>
+      </div>
     </div>
-   </div>
   </section>
+
   <!-- ============== Footer ============== -->
   <footer class="site-footer">
-   <div class="container footer-inner">
-    <div class="footer-brand">
-     <img alt="Mirlos Treasures logo" class="footer-logo" src="images/mirloslogoclear.png"/>
-     <p>
-      Curated vintage, modern craftsmanship.
-     </p>
-    </div>
-    <div class="footer-links">
-     <h3>
-      Shop
-     </h3>
-     <ul>
-      <li>
-       <a href="#featured">
-        Featured
-       </a>
-      </li>
-      <li>
-       <a data-filter="apothecary" href="#featured">
-        Apothecary
-       </a>
-      </li>
-      <li>
-       <a data-filter="toys &amp; games" href="#featured">
-        Toys &amp; Games
-       </a>
-      </li>
-      <li>
-       <a data-filter="electronics" href="#featured">
-        Electronics
-       </a>
-      </li>
-     </ul>
-    </div>
-    <div class="footer-bottom">
-     <small>
-      ©
-      <span id="year">
-      </span>
-      Mirlos Treasures · All rights reserved
-     </small>
-    </div>
-   </div>
-  </footer>
-    <div aria-hidden="true" class="snow"></div>
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img
+          class="footer-logo"
+          src="images/mirloslogoclear.png"
+          alt="Mirlos Treasures logo"
+        />
+        <p>Curated vintage, modern craftsmanship.</p>
+      </div>
 
+      <div class="footer-links">
+        <h3>Shop</h3>
+        <ul>
+          <li><a href="#featured">Featured</a></li>
+          <li><a href="#featured" data-filter="apothecary">Apothecary</a></li>
+          <li><a href="#featured" data-filter="toys &amp; games">Toys &amp; Games</a></li>
+          <li><a href="#featured" data-filter="electronics">Electronics</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-bottom">
+        <small>
+          © <span id="year"></span> Mirlos Treasures · All rights reserved
+        </small>
+      </div>
+    </div>
+  </footer>
+
+  <div class="snow" aria-hidden="true"></div>
+
+  <!-- Order matters: products.js FIRST, then cart.js -->
   <script src="products.js"></script>
   <script src="cart.js"></script>
 
   <script>
+    // Footer year + dropdown theme
     document.getElementById('year').textContent = new Date().getFullYear();
+
     (function () {
       const root = document.documentElement;
       const select = document.getElementById('themeSelect');
-      function applyTheme(t){ root.className = ''; root.classList.add(t||'default'); }
+
+      function applyTheme(t) {
+        root.className = '';
+        root.classList.add(t || 'default');
+      }
+
       const saved = localStorage.getItem('mirlos-theme') || 'default';
-      applyTheme(saved); select.value = saved;
-      select.addEventListener('change', e => {
+      applyTheme(saved);
+      select.value = saved;
+
+      select.addEventListener('change', (e) => {
         const t = e.target.value || 'default';
-        applyTheme(t); localStorage.setItem('mirlos-theme', t);
+        applyTheme(t);
+        localStorage.setItem('mirlos-theme', t);
       });
     })();
   </script>
+
   <script>
+    // Automatic seasonal theme from settings.json
     (function () {
-      const THEMES = ['fall','winter','spring','summer'];
+      const THEMES = ['fall', 'winter', 'spring', 'summer'];
+
       function applyTheme(season) {
         const html = document.documentElement;
-        THEMES.forEach(t => html.classList.remove('theme-' + t));
+        THEMES.forEach((t) => html.classList.remove('theme-' + t));
         html.classList.add('theme-' + season);
       }
+
       fetch('data/settings.json', { cache: 'no-store' })
-        .then(r => r.json())
-        .then(cfg => {
+        .then((r) => r.json())
+        .then((cfg) => {
           const s = String((cfg && cfg.season) || 'fall').toLowerCase();
           applyTheme(THEMES.includes(s) ? s : 'fall');
         })
