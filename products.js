@@ -40,11 +40,11 @@
       description:
         "Vibrant, detailed, and full of character – this Day of the Dead sugar skull pair makes a perfect statement piece.",
       condition: "new",
-      image: "images/spsod-1.jpg",
+      image: "images/spdod-1.jpg",
       images: [
-        "images/spsod-1.jpg",
-        "images/spsod-2.jpg",
-        "images/spsod-3.jpg"
+        "images/spdod-1.jpg",
+        "images/spdod-2.jpg",
+        "images/spdod-3.jpg"
       ],
       featured: true,
       inventory: 1
