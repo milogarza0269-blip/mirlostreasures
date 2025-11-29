@@ -1,8 +1,18 @@
 // products.js
-// Mirlos Treasures catalog + renderer
+// Mirlos Treasures – in-file catalog + renderer
 
 (function () {
-  // ---------- CATALOG ----------
+  // ==== DOM HOOKS ============================================================
+  const grid = document.getElementById("productsGrid");
+  if (!grid) {
+    console.warn("[products] #productsGrid not found");
+    return;
+  }
+
+  const categoryFilter = document.getElementById("categoryFilter");
+
+  // ==== CATALOG ==============================================================
+
   const catalog = [
     {
       id: "mk-satchel",
@@ -28,7 +38,7 @@
       price: 70,
       category: "home",
       description:
-        "Vibrant, detailed, and full of character – this pair of hand-painted Day of the Dead sugar skulls makes a bold display.",
+        "Vibrant, detailed, and full of character – this Day of the Dead sugar skull pair makes a perfect statement piece.",
       condition: "new",
       image: "images/spsod-1.jpg",
       images: [
@@ -41,94 +51,81 @@
     }
   ];
 
-  // ---------- GLOBAL MAP (for cart.js) ----------
-  const byId = {};
+  // Map for the cart (cart.js expects this)
+  const catalogById = {};
   catalog.forEach((p) => {
-    p.currentStock =
-      typeof p.inventory === "number" && p.inventory > 0 ? p.inventory : 1;
-    byId[p.id] = p;
+    catalogById[p.id] = {
+      ...p,
+      currentStock: p.inventory ?? 0
+    };
   });
+  window.__CatalogById = catalogById;
 
-  window.__Catalog = catalog;
-  window.__CatalogById = byId;
-
-  // ---------- RENDERING ----------
-  const grid = document.getElementById("productsGrid");
-  const categoryFilter = document.getElementById("categoryFilter");
-  const filterTiles = document.querySelectorAll("[data-filter]");
+  // ==== HELPERS ==============================================================
 
   function money(v) {
     return "$" + Number(v || 0).toFixed(2);
   }
 
-  function getFilteredProducts(category) {
-    let items = catalog.filter((p) => p.featured); // only featured
-    if (category) {
-      const c = String(category).toLowerCase();
-      items = items.filter((p) => String(p.category).toLowerCase() === c);
-    }
-    return items;
+  function createCard(p) {
+    const card = document.createElement("article");
+    card.className = "product-card";
+    card.dataset.category = p.category || "";
+
+    card.innerHTML = `
+      <div class="product-media">
+        <img src="${p.image}" alt="${p.title}">
+      </div>
+      <div class="product-body">
+        <h3 class="product-title">${p.title}</h3>
+        <p class="product-price">${money(p.price)}</p>
+        <button type="button"
+                class="btn btn-primary add-to-cart"
+                data-id="${p.id}">
+          Add to Cart
+        </button>
+      </div>
+    `;
+    return card;
   }
 
-  function renderProducts(category) {
-    if (!grid) return;
+  function renderProducts(filterCategory) {
+    const items = catalog
+      .filter((p) => p.featured !== false)
+      .filter((p) => !filterCategory || p.category === filterCategory);
 
-    const products = getFilteredProducts(category);
+    grid.innerHTML = "";
 
-    if (!products.length) {
+    if (!items.length) {
       grid.innerHTML =
         '<p class="muted" style="padding:16px;text-align:center">No products available yet. Check back soon!</p>';
       return;
     }
 
-    grid.innerHTML = products
-      .map(
-        (p) => `
-      <article class="product-card" data-id="${p.id}">
-        <div class="product-media">
-          <img src="${p.image}" alt="${p.title}">
-        </div>
-        <div class="product-body">
-          <h3 class="product-title">${p.title}</h3>
-          <p class="product-price">${money(p.price)}</p>
-          ${
-            p.description
-              ? `<p class="product-desc">${p.description}</p>`
-              : ""
-          }
-          <button class="btn btn-primary add-to-cart" data-id="${p.id}">
-            Add to Cart
-          </button>
-        </div>
-      </article>
-    `
-      )
-      .join("");
+    items.forEach((p) => grid.appendChild(createCard(p)));
   }
 
-  // initial render
-  renderProducts("");
+  // ==== FILTERS & SHORTCUTS ==================================================
 
-  // ---------- FILTER HOOKS ----------
-  function applyCategory(category) {
-    const cat = category || "";
-    renderProducts(cat);
-    if (categoryFilter) categoryFilter.value = cat;
+  if (categoryFilter) {
+    categoryFilter.addEventListener("change", (e) => {
+      const cat = e.target.value || "";
+      renderProducts(cat);
+    });
   }
 
-  categoryFilter?.addEventListener("change", (e) => {
-    applyCategory(e.target.value || "");
-  });
-
-  filterTiles.forEach((tile) => {
-    tile.addEventListener("click", (e) => {
-      const cat = tile.getAttribute("data-filter") || "";
-      applyCategory(cat);
+  // Hero tiles & footer links with data-filter
+  document.querySelectorAll("[data-filter]").forEach((el) => {
+    el.addEventListener("click", (e) => {
+      const cat = el.getAttribute("data-filter") || "";
+      if (categoryFilter) categoryFilter.value = cat;
+      renderProducts(cat);
     });
   });
 
-  // ---------- ADD TO CART HOOK ----------
-  document.addEventListener("click", (e) => {
+  // ==== ADD TO CART HANDLER ==================================================
+
+  grid.addEventListener("click", (e) => {
     const btn = e.target.closest(".add-to-cart");
     if (!btn) return;
 
@@ -136,7 +133,10 @@
     if (window.MirlosCart && typeof window.MirlosCart.add === "function") {
       window.MirlosCart.add(id, 1);
     } else {
-      console.warn("[products] MirlosCart not ready, clicked id:", id);
+      console.warn("[products] MirlosCart.add not available");
     }
   });
+
+  // Initial render – no category filter
+  renderProducts("");
 })();
