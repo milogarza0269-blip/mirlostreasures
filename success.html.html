@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Thank You · Mirlos Treasures</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .success-wrap{width:min(800px,92%);margin:40px auto;background:var(--paper);border:1px solid var(--border);border-radius:12px;box-shadow:var(--shadow);padding:24px;text-align:center}
+    .success-wrap h1{margin-top:0}
+    .success-details{margin:10px 0 20px;color:var(--muted)}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <img src="images/mirloslogoclear.png" alt="Mirlos Treasures logo" />
+        <span>Mirlos Treasures</span>
+      </a>
+    </div>
+  </header>
+
+  <main class="success-wrap">
+    <h1>Thank you for your order!</h1>
+    <p class="success-details">We’ve received your purchase (demo). A confirmation email would normally go here.</p>
+    <a class="btn btn-primary" href="index.html">Back to Store</a>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img class="footer-logo" src="images/mirloslogoclear.png" alt="Mirlos Treasures logo" />
+        <p>Curated vintage, modern craftsmanship.</p>
+      </div>
+      <div class="footer-bottom">
+        <small>© <span id="year"></span> Mirlos Treasures · All rights reserved</small>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+  <script>
+  (function(){
+    // Double-check: empty localStorage on success page load
+    try { localStorage.setItem('mirlos-cart', '[]'); } catch(e) {}
+    // Optional: reset cart badge count to 0
+    const badge = document.getElementById('cartCount') || document.querySelector('.badge');
+    if (badge) badge.textContent = '0';
+    // Update footer year
+    const year = document.getElementById('year');
+    if (year) year.textContent = new Date().getFullYear();
+  })();
+  </script>
+</body>
+</html>
