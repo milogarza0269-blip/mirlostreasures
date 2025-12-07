@@ -74,27 +74,19 @@
     </div>
   </section>
 
-  <!-- ============== Categories ============== -->
-  <section class="categories container" aria-labelledby="shopByCategory">
-    <h2 class="section-title" id="shopByCategory">Browse by Category</h2>
-
-    <a class="tile" href="#featured" data-filter="rare">
-      <h3>Rare</h3>
-      <span>Signed, limited, vintage</span>
-    </a>
-    <a class="tile" href="#featured" data-filter="apothecary">
-      <h3>Apothecary</h3>
-      <span>Handmade soaps</span>
-    </a>
-    <a class="tile" href="#featured" data-filter="toys &amp; games">
-      <h3>Toys &amp; Games</h3>
-      <span>Action figures &amp; more</span>
-    </a>
-    <a class="tile" href="#featured" data-filter="electronics">
-      <h3>Electronics</h3>
-      <span>Cassettes, media</span>
-    </a>
-  </section>
+  const CATEGORY_OPTIONS = [
+  ['apothecary','Apothecary'],
+  ['media','Media (Cassettes/VHS)'],
+  ['clothing','Clothing'],
+  ['purses','Purses & Accessories'],
+  ['collectibles','Collectibles'],
+  ['antiques','Antiques'],
+  ['toys','Toys'],
+  ['beauty','Beauty & Soaps'],
+  ['home','Home Decor'],
+  ['electronics','Electronics']
+];
+ </section>
 
   <!-- ============== Featured ============== -->
   <section class="products" id="featured" aria-labelledby="featuredHeading">
