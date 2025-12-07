@@ -1,3 +1,0 @@
-[InternetShortcut]
-URL=https://photos.google.com/share/AF1QipNhH8YxogM4kquGTPjwSXNfMonCyYGQ6ZOMCGiVl73o0cA0VPpIxPeeTmdRdIS7dg/photo/AF1QipN9vdDlQtCL8q97hDhTOdDcGyUvpQqiEcBqUhIZ?key=ekZlQXZoWHlya1hONGR2VEpMREhic2h4T3ZiWl9B
-
